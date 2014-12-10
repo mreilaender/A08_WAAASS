@@ -7,7 +7,7 @@ public class testClass {
 		Text t = new ConcreteText("haha ConcreteText anus anal");
 		try {
 			t = new ReplaceLaughing(t);
-			t = new BadWords(t, "C:\\Users\\manuel\\Desktop\\bads.txt");
+			t = new BadWords(t, "C:\\Users\\Markus\\Desktop\\bads.txt");
 			t = new DoubleLetter(t);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
