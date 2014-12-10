@@ -7,15 +7,15 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class Model_Client {
-	//	private GUI_Chat gui;
+	//	private GUI_Chat GUI;
 	private Socket client;
 	private PrintWriter writer;
 	private BufferedReader reader;
 
-	public Model_Client(String ip, int port) {
-		setSocket(ip, port);
+	public Model_Client() {
+		
 	}
-	private void setSocket(String ip, int port) {
+	public void setSocket(String ip, int port) {
 		try {
 			System.out.println("Trying to connect to Server on " + ip + ":" + port);
 			client = new Socket(ip, port);
@@ -37,18 +37,13 @@ public class Model_Client {
 	public void waitForMessage() {
 		System.out.println("Waiting for Messages from Server");
 		while(true) {
-			try {
-				String msg = reader.readLine();
-				if(msg != null) {
-					System.out.println("\n"+msg);
-					writer.println("I got a Message from you");
-					writer.flush();
-				} else {
-					System.out.print(".");
-				}
-			} catch (IOException e) {
-				System.out.print(".");
-			}
+			
 		}
+	}
+	public BufferedReader getReader() {
+		return reader;
+	}
+	public void sendMessage(String msg) {
+		writer.println(msg);
 	}
 }

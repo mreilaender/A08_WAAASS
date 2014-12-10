@@ -45,12 +45,16 @@ public class GUI_Client extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
-	
-	public String getText(){
-		return this.f1.getText();
+	public String getText() {
+		return f1.getText();
 	}
-	
-	
+	/**
+	 * Prints a String to the next line of the TextArea
+	 * @param msg Message to be printed
+	 */
+	public void printMessage(String msg) {
+		f1.setText(getText()+"\n");
+	}
 	
 		 
 		
