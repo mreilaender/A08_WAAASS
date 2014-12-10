@@ -8,7 +8,7 @@ public class ToUppercase extends TextFilter {
 	@Override
 	public String getFilteredText() {
 		// TODO Auto-generated method stub
-		return getText().getFilteredText() + ", ToUppercase";
+		return getText().getFilteredText().toUpperCase();
 	}
 
 }

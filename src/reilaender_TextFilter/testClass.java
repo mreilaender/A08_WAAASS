@@ -4,8 +4,9 @@ import java.io.FileNotFoundException;
 
 public class testClass {
 	public static void main(String[] args) {
-		Text t = new ConcreteText("ConcreteText anus anal");
+		Text t = new ConcreteText("haha ConcreteText anus anal");
 		try {
+			t = new ReplaceLaughing(t);
 			t = new BadWords(t, "C:\\Users\\manuel\\Desktop\\bads.txt");
 			t = new DoubleLetter(t);
 		} catch (FileNotFoundException e) {
