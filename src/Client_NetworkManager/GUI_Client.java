@@ -13,14 +13,14 @@ public class GUI_Client extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private Controller_Client con;
 	private JTextField f1 = new JTextField();
+	private TextArea t1;
 	public GUI_Client(Controller_Client con) {
 		this.con = con;
 		
 		
 		JPanel p1 = new JPanel(new BorderLayout());
 		JPanel p2 = new JPanel(new GridLayout(1, 2));
-		TextArea t1 = new TextArea();
-		
+		t1 = new TextArea();
 		
 		
 		
@@ -53,9 +53,6 @@ public class GUI_Client extends JFrame{
 	 * @param msg Message to be printed
 	 */
 	public void printMessage(String msg) {
-		f1.setText(getText()+"\n");
-	}
-	
-		 
-		
+		t1.setText(t1.getText() + "\n" + msg);
+	}	
 }
