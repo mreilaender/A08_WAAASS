@@ -20,12 +20,14 @@ public class Controller_Client implements ActionListener, KeyListener, Observer 
 	public Controller_Client(String[]args) {
 		m_client = new Model_Client();
 			m_client.setSocket(args[0], Integer.parseInt(args[1]));
+		
+		v_chat = new GUI_Client(this);
+			
 		handler = new ReceiveHandler(m_client.getReader());
 			handler.register(this);
-//		v_chat = new GUI_Client(this);
-	}
-	public void waitForMessage() {
-		m_client.waitForMessage();
+			new Thread(handler).start();
+			
+		while(true);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {

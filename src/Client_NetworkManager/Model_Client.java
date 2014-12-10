@@ -34,12 +34,6 @@ public class Model_Client {
 		writer.close();
 		reader.close();
 	}
-	public void waitForMessage() {
-		System.out.println("Waiting for Messages from Server");
-		while(true) {
-			
-		}
-	}
 	public BufferedReader getReader() {
 		return reader;
 	}

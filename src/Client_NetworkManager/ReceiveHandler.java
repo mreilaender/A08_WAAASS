@@ -3,7 +3,6 @@ package Client_NetworkManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import stop.Stoppable;
 import observing.Observer;
@@ -29,10 +28,13 @@ public class ReceiveHandler implements Runnable, Stoppable, Subject {
 		while(running) {
 			try {
 				String msg = reader.readLine();
+				System.out.println("Message: "+msg);
 				if(msg != null) {
-					Iterator<Observer> it = observer.iterator();
-					for(int i = 0;it.hasNext();++i)
+					
+					System.out.println(msg);
+					for(int i = 0;i < observer.size();++i) {
 						observer.get(i).update(msg);
+					}
 				} else {
 					System.out.print(".");
 				}
