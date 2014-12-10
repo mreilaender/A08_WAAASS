@@ -1,4 +1,4 @@
-package test;
+package reilaender_test;
 
 import Client_NetworkManager.Controller_Client;
 

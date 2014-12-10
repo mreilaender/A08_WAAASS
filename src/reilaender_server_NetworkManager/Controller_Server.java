@@ -1,11 +1,10 @@
-package Server_NetworkManager;
+package reilaender_server_NetworkManager;
 
 import java.io.IOException;
 
 public class Controller_Server {
-	private GUI_Server gui_serv;
 	private Model_Server m_serv;
-
+	private GUI_Server gui_serv;
 	public Controller_Server(String[]args) {
 		try {
 			m_serv = new Model_Server(Integer.parseInt(args[0]));

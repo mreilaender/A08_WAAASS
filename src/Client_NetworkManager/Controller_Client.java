@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import observing.Observer;
+import reilaender_observing.Observer;
 
 public class Controller_Client implements ActionListener, KeyListener, Observer {
 	//Model

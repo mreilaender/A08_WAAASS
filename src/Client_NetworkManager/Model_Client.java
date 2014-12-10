@@ -1,16 +1,25 @@
 package Client_NetworkManager;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+
+import reilaender_TextFilter.BadWords;
+import reilaender_TextFilter.ConcreteText;
+import reilaender_TextFilter.DoubleLetter;
+import reilaender_TextFilter.ReplaceLaughing;
+import reilaender_TextFilter.Text;
+import reilaender_TextFilter.ToUppercase;
 
 public class Model_Client {
 	//	private GUI_Chat GUI;
 	private Socket client;
 	private PrintWriter writer;
 	private BufferedReader reader;
+	private Text t;
 
 	public Model_Client() {
 		
@@ -38,6 +47,19 @@ public class Model_Client {
 		return reader;
 	}
 	public void sendMessage(String msg) {
-		writer.println(msg);
+		t = new ConcreteText(msg);
+	    t = new ReplaceLaughing(t);
+	    try {
+			t = new BadWords(t, "bads.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    t = new DoubleLetter(t);
+	    t = new ToUppercase(t);
+	    
+		writer.println(t.getFilteredText());
+		writer.flush();
 	}
 }

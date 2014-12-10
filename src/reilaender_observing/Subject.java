@@ -1,4 +1,4 @@
-package observing;
+package reilaender_observing;
 
 public interface Subject {
 	public void register(Observer ob);

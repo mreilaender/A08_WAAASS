@@ -1,4 +1,4 @@
-package Server_NetworkManager;
+package reilaender_server_NetworkManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,18 +6,20 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import stop.Stoppable;
+import reilaender_stop.Stoppable;
 
 public class Client_Handler implements Runnable,Stoppable {
 	private Socket client;
 	private PrintWriter writer;
 	private BufferedReader reader;
 	private boolean running;
+	private MessageHandler handler;
 	
-	public Client_Handler(Socket c) throws IOException {
+	public Client_Handler(Socket c, MessageHandler handler) throws IOException {
 		client = c;
 		writer = new PrintWriter(client.getOutputStream());
 		reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+		this.handler = handler;
 		writer.println("Successfully connected to Server");
 		writer.flush();
 	}
@@ -29,7 +31,8 @@ public class Client_Handler implements Runnable,Stoppable {
 				String s = null;
 				
 				while((s = reader.readLine()) != null) {
-					System.out.println("Client: " + s);
+					this.handler.notifyClients(s);
+					System.out.println("Client [" + client.getInetAddress() + "]: " + s);
 				}
 			}
 			closeStreams();

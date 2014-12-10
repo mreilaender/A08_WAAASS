@@ -1,6 +1,6 @@
-package test;
+package reilaender_test;
 
-import Server_NetworkManager.Controller_Server;
+import reilaender_server_NetworkManager.Controller_Server;
 
 public class testServer {
 	public static void main(String[] args) {

@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import stop.Stoppable;
-import observing.Observer;
-import observing.Subject;
+import reilaender_observing.Observer;
+import reilaender_observing.Subject;
+import reilaender_stop.Stoppable;
 
 /**
  * Retrieves the given BufferedReader and updates its Observers if a Messages comes in.
@@ -28,10 +28,7 @@ public class ReceiveHandler implements Runnable, Stoppable, Subject {
 		while(running) {
 			try {
 				String msg = reader.readLine();
-				System.out.println("Message: "+msg);
 				if(msg != null) {
-					
-					System.out.println(msg);
 					for(int i = 0;i < observer.size();++i) {
 						observer.get(i).update(msg);
 					}
