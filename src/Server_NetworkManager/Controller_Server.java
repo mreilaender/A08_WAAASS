@@ -12,7 +12,6 @@ public class Controller_Server {
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(1);
-			//			System.out.println("Died .. Don't know why ... ");
 		}
 		gui_serv = new GUI_Server(this);
 	}

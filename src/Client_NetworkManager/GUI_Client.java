@@ -7,6 +7,10 @@ import java.awt.TextArea;
 import javax.swing.*;
 
 public class GUI_Client extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Controller_Client con;
 	private JTextField f1 = new JTextField();
 	public GUI_Client(Controller_Client con) {
@@ -26,6 +30,7 @@ public class GUI_Client extends JFrame{
 		b1.setActionCommand("Send");
 		b1.addActionListener(this.con);
 		
+		f1.addKeyListener(this.con);
 		
 		p2.add(f1);
 		p2.add(b1);

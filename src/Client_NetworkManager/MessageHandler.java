@@ -1,11 +1,22 @@
 package Client_NetworkManager;
 
-public class MessageHandler implements Runnable {
+import stop.Stoppable;
+
+public class MessageHandler implements Runnable, Stoppable {
+	private boolean running;
 	
+	public MessageHandler() {
+		
+	}
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		running = true;
+		while(running) {
+			
+		}
 	}
-
+	@Override
+	public void stoping() {
+		running = false;
+	}
 }

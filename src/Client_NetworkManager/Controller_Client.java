@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Controller_Client implements ActionListener{
+public class Controller_Client implements ActionListener, KeyListener{
 	//Model
 	private Model_Client m_client;
 	
@@ -27,6 +27,18 @@ public class Controller_Client implements ActionListener{
 		}
 		
 		
+	}
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO
+	}
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// UNUSED
+	}
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// UNUSED
 	}
 	
 }
