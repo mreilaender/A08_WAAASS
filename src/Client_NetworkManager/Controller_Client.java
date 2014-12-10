@@ -32,21 +32,25 @@ public class Controller_Client implements ActionListener, KeyListener, Observer 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getActionCommand()=="Send"){//.equals() TODO
-			
+		if(e.getActionCommand().equals("Send")){//.equals() TODO
+			m_client.sendMessage(v_chat.getText());
+			v_chat.clearTextField();
 		}
 		
 	}
 	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO
+	public void keyPressed(KeyEvent e) {
+		if(e.getKeyCode()==KeyEvent.VK_ENTER){//.equals() TODO
+			m_client.sendMessage(v_chat.getText());
+			v_chat.clearTextField();
+		}
 	}
 	@Override
-	public void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent e) {
 		// UNUSED
 	}
 	@Override
-	public void keyTyped(KeyEvent arg0) {
+	public void keyTyped(KeyEvent e) {
 		// UNUSED
 	}
 	@Override

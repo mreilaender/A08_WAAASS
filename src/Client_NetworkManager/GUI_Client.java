@@ -54,5 +54,11 @@ public class GUI_Client extends JFrame{
 	 */
 	public void printMessage(String msg) {
 		t1.setText(t1.getText() + "\n" + msg);
-	}	
+	}
+	/**
+	 * Clears the TextField
+	 */
+	public void clearTextField() {
+		this.f1.setText("");
+	}
 }
