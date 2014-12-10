@@ -18,8 +18,9 @@ public class Client_Handler implements Runnable,Stoppable {
 		client = c;
 		writer = new PrintWriter(client.getOutputStream());
 		reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+		writer.println("Successfully connected to Server");
+		writer.flush();
 	}
-
 	@Override
 	public void run() {
 		running = true;
@@ -28,8 +29,6 @@ public class Client_Handler implements Runnable,Stoppable {
 				String s = null;
 				
 				while((s = reader.readLine()) != null) {
-					writer.println("Successfully connected to Server");
-					writer.flush();
 					System.out.println("Client: " + s);
 				}
 			}
@@ -45,7 +44,6 @@ public class Client_Handler implements Runnable,Stoppable {
 		writer.close();
 		reader.close();
 	}
-
 	@Override
 	public void stoping() {
 		running = false;
